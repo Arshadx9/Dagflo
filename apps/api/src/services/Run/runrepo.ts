@@ -32,7 +32,8 @@ export const getrunbywfid = async (wfid : string) => {
 return await prisma.jobRun.findMany({
     where : {
          workflowid : wfid
-    }
+    },
+     include: { steprun: true } 
 })
 
 
